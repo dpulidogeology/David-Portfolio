@@ -12,7 +12,8 @@ export interface Project {
   title: string;
   description: string;
   tags: string[];
-  imageUrl: string;
+  imageUrl?: string;
+  videoUrl?: string;
 }
 
 export interface Education {
