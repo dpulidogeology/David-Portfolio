@@ -9,49 +9,50 @@ import { AcademicCapIcon } from './components/icons/AcademicCapIcon';
 import { GitHubIcon } from './components/icons/GitHubIcon';
 import { LinkedInIcon } from './components/icons/LinkedInIcon';
 import { ContactModal } from './components/ContactModal';
+import profileImage from './assets/David-Profile.jpg';
 
 
 // --- DATA ---
 const contactInfo = {
-  name: "David F. Pulido",
-  title: "Geology | Geomatics, MSc. Candidate",
-  location: "Karlsruhe, Germany",
-  email: "dpulidogeology@gmail.com",
-  phone: "+4915231362028",
-  linkedin: "https://www.linkedin.com/in/david-f-pulido-524790137",
-  github: "https://github.com/dpulidogeology",
+    name: "David F. Pulido",
+    title: "Geology | M.Sc. Geomatics | Robotics & Autonomous Systems",
+    location: "Karlsruhe, Germany",
+    email: "dpulidogeology@gmail.com",
+    phone: "+4915231362028",
+    linkedin: "https://www.linkedin.com/in/david-f-pulido-524790137",
+    github: "https://github.com/dpulidogeology",
 };
 
 const summary = "Hello! I'm David, a multidisciplinary engineer with a BSc in Geology and currently completing my MSc in Geomatics at Karlsruhe University of Applied Sciences in Germany. I have experience in Earth Observation (EO), UAV based autonomous navigation, and developing geospatial dashboards and analytics platforms. I'm passionate about developing intelligent, autonomous, and data-driven systems at the intersection of space, robotics, and geospatial technologies.";
 
 const skillsData: Skill[] = [
-  { name: 'Autonomous Vehicles', icon: CpuChipIcon },
-  { name: 'Robot Operating System (ROS)', icon: CpuChipIcon },
-  { name: 'Geospatial Data (QGIS, ArcGIS)', icon: GlobeAltIcon },
-  { name: 'Web Development (JS, Python)', icon: CodeBracketIcon },
-  { name: '3D Simulation (Gazebo, Three.js)', icon: CodeBracketIcon },
-  { name: 'Machine Learning (YOLO)', icon: CpuChipIcon },
+    { name: 'Autonomous Vehicles', icon: CpuChipIcon },
+    { name: 'Robot Operating System (ROS)', icon: CpuChipIcon },
+    { name: 'Geospatial Data (QGIS, ArcGIS)', icon: GlobeAltIcon },
+    { name: 'Web Development (JS, Python)', icon: CodeBracketIcon },
+    { name: '3D Simulation (Gazebo, Three.js)', icon: CodeBracketIcon },
+    { name: 'Machine Learning (YOLO)', icon: CpuChipIcon },
 ];
 
 const experienceData: Experience[] = [
-  { role: "HIWI Robot Hub Academie (Duckietown Project)", company: "IRAS", period: "Feb 2025 - Present", location: "Karlsruhe, Germany", description: ["Developing Autonomous Navigation Systems and AI algorithms for Duckiebots in the Duckietown project."] },
-  { role: "HIWI in Navigation Technologies", company: "Fraunhofer IOSB", period: "Sep 2024 - Oct 2025", location: "Karlsruhe, Germany", description: ["Setting up Geoserver environments for WMS and WMS-T layers using NetCDF weather data for realtime Apps and general research in navigation technologies for Multidrone missions."] },
-  { role: "SAP Rural Sourcing Analytics", company: "SAP", period: "Oct 2023 - Sep 2024", location: "Karlsruhe, Germany", description: ["Researched geospatial datasets and ETL data methodology for implementing EUDR policy into SAP/HANA DB.", "Developed an AI project using high-resolution satellite imagery and ML to classify crops and count trees."] },
-  { role: "Executive of Digital Innovation", company: "Coffee Rocks", period: "Feb 2021 - Sep 2022", location: "Remote", description: ["Served as IT Project Director & Researcher in Augmented Reality, Virtual Reality, Geospatial technologies, 3D modeling, remote sensing & data science projects for earth sciences applications."] },
+    { role: "HIWI Robot Hub Academie (Duckietown Project)", company: "IRAS", period: "Feb 2025 - Present", location: "Karlsruhe, Germany", description: ["Developing Autonomous Navigation Systems and AI algorithms for Duckiebots in the Duckietown project."] },
+    { role: "HIWI in Navigation Technologies", company: "Fraunhofer IOSB", period: "Sep 2024 - Oct 2025", location: "Karlsruhe, Germany", description: ["Setting up Geoserver environments for WMS and WMS-T layers using NetCDF weather data for realtime Apps and general research in navigation technologies for Multidrone missions."] },
+    { role: "SAP Rural Sourcing Analytics", company: "SAP", period: "Oct 2023 - Sep 2024", location: "Karlsruhe, Germany", description: ["Researched geospatial datasets and ETL data methodology for implementing EUDR policy into SAP/HANA DB.", "Developed an AI project using high-resolution satellite imagery and ML to classify crops and count trees."] },
+    { role: "Executive of Digital Innovation", company: "Coffee Rocks", period: "Feb 2021 - Sep 2022", location: "Remote", description: ["Served as IT Project Director & Researcher in Augmented Reality, Virtual Reality, Geospatial technologies, 3D modeling, remote sensing & data science projects for earth sciences applications."] },
 ];
 
 const projectsData: Project[] = [
     {
-      title: "Duckietown Robotics Project @ IRAS",
-      description: "Leading STEM initiatives and tutoring students in robotics using the Duckietown platform. Developed challenges involving autonomous navigation, lane following, and YOLO-based object detection with ROS2. Recently implemented autonomous and manual gamepad controls for a live demonstration at the Science Days Exhibition 2025.",
-      tags: ["Robotics", "ROS2", "Python", "AI", "Computer Vision", "STEM"],
-      videoUrl: "YOUR_DUCKIETOWN_VIDEO_URL_HERE.mp4"
+        title: "Duckietown Robotics Project @ IRAS",
+        description: "Leading STEM initiatives and tutoring students in robotics using the Duckietown platform. Developed challenges involving autonomous navigation, lane following, and YOLO-based object detection with ROS2. Recently implemented autonomous and manual gamepad controls for a live demonstration at the Science Days Exhibition 2025.",
+        tags: ["Robotics", "ROS2", "Python", "AI", "Computer Vision", "STEM"],
+        videoUrl: "YOUR_DUCKIETOWN_VIDEO_URL_HERE.mp4"
     },
     {
-      title: "Master Thesis: NMPC Simulation Framework",
-      description: "For my thesis with Fraunhofer IOSB & H-KA, I designed and built a simulation framework to test Nonlinear Model Predictive Control (NMPC) algorithms for autonomous UAV swarm navigation and control.",
-      tags: ["Master Thesis", "NMPC", "UAV Swarms", "Control Systems", "Simulation", "Python"],
-      videoUrl: "YOUR_THESIS_VIDEO_URL_HERE.mp4"
+        title: "Master Thesis: NMPC Simulation Framework",
+        description: "For my thesis with Fraunhofer IOSB & H-KA, I designed and built a simulation framework to test Nonlinear Model Predictive Control (NMPC) algorithms for autonomous UAV swarm navigation and control.",
+        tags: ["Master Thesis", "NMPC", "UAV Swarms", "Control Systems", "Simulation", "Python"],
+        videoUrl: "YOUR_THESIS_VIDEO_URL_HERE.mp4"
     }
 ];
 
@@ -62,47 +63,47 @@ const educationData: Education[] = [
 
 // --- STABLE FADE-IN COMPONENT ---
 const FadeInSection: React.FC<{ children: React.ReactNode; delay?: number }> = ({ children, delay = 0 }) => {
-  const [isVisible, setVisible] = useState(false);
-  const domRef = useRef<HTMLDivElement>(null);
+    const [isVisible, setVisible] = useState(false);
+    const domRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
-      if (entries[0].isIntersecting) {
-        setVisible(true);
+    useEffect(() => {
+        const observer = new IntersectionObserver(entries => {
+            if (entries[0].isIntersecting) {
+                setVisible(true);
+                if (domRef.current) {
+                    observer.unobserve(domRef.current);
+                }
+            }
+        });
         if (domRef.current) {
-          observer.unobserve(domRef.current);
+            observer.observe(domRef.current);
         }
-      }
-    });
-    if (domRef.current) {
-      observer.observe(domRef.current);
-    }
-    return () => observer.disconnect();
-  }, []);
+        return () => observer.disconnect();
+    }, []);
 
-  return (
-    <div
-      ref={domRef}
-      className={`fade-in-section ${isVisible ? 'is-visible' : ''}`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      {children}
-    </div>
-  );
+    return (
+        <div
+            ref={domRef}
+            className={`fade-in-section ${isVisible ? 'is-visible' : ''}`}
+            style={{ transitionDelay: `${delay}ms` }}
+        >
+            {children}
+        </div>
+    );
 };
 
 // --- SECTION COMPONENT ---
 const Section: React.FC<{ id: string, title: string, children: React.ReactNode }> = ({ id, title, children }) => (
-  <section id={id} className="py-24 max-w-4xl mx-auto px-4">
-    <FadeInSection>
-      <h2 className="text-3xl font-bold text-slate-200 mb-12 flex items-center">
-        <span className="text-cyan-400 mr-3 text-2xl font-mono">0{['about', 'experience', 'projects', 'skills', 'education', 'contact'].indexOf(id) + 1}.</span>
-        {title}
-        <span className="ml-6 h-px flex-grow bg-slate-700"></span>
-      </h2>
-    </FadeInSection>
-    {children}
-  </section>
+    <section id={id} className="py-24 max-w-4xl mx-auto px-4">
+        <FadeInSection>
+            <h2 className="text-3xl font-bold text-slate-200 mb-12 flex items-center">
+                <span className="text-cyan-400 mr-3 text-2xl font-mono">0{['about', 'experience', 'projects', 'skills', 'education', 'contact'].indexOf(id) + 1}.</span>
+                {title}
+                <span className="ml-6 h-px flex-grow bg-slate-700"></span>
+            </h2>
+        </FadeInSection>
+        {children}
+    </section>
 );
 
 // --- Perlin Noise Implementation ---
@@ -272,7 +273,7 @@ const App: React.FC = () => {
             const numberOfDrones = 7;
             for (let i = 0; i < numberOfDrones; i++) drones.push(new Drone());
         };
-        
+
         const drawGeologicalStrata = (scroll_y: number, fadeOutFraction: number) => {
             const scrollFraction = Math.max(0, Math.min(1, (scroll_y - 100) / 800));
             const finalOpacity = scrollFraction * fadeOutFraction;
@@ -313,7 +314,7 @@ const App: React.FC = () => {
                 ctx.stroke();
             }
         };
-        
+
         const drawGeoid = (scroll_y: number) => {
             const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
             const geoidFadeStart = scrollHeight * 0.6;
@@ -331,10 +332,10 @@ const App: React.FC = () => {
             const totalLat = 40; const totalLon = 60;
             const rotX = scroll_y * 0.0002; const rotY = time * 0.05;
 
-            const points: {x:number, y:number, z:number}[][] = [];
+            const points: { x: number, y: number, z: number }[][] = [];
             for (let i = 0; i <= totalLat; i++) {
                 const lat = (i / totalLat - 0.5) * Math.PI;
-                const row: {x:number, y:number, z:number}[] = [];
+                const row: { x: number, y: number, z: number }[] = [];
                 for (let j = 0; j <= totalLon; j++) {
                     const lon = (j / totalLon) * 2 * Math.PI;
                     const x0 = Math.cos(lon) * Math.cos(lat);
@@ -347,32 +348,32 @@ const App: React.FC = () => {
                 }
                 points.push(row);
             }
-            
-            const projectedPoints: {x:number, y:number, z:number, visible: boolean}[][] = [];
+
+            const projectedPoints: { x: number, y: number, z: number, visible: boolean }[][] = [];
             for (let i = 0; i <= totalLat; i++) {
-                const projectedRow: {x:number, y:number, z:number, visible: boolean}[] = [];
-                for(let j = 0; j <= totalLon; j++) {
-                    let {x, y, z} = points[i][j];
+                const projectedRow: { x: number, y: number, z: number, visible: boolean }[] = [];
+                for (let j = 0; j <= totalLon; j++) {
+                    let { x, y, z } = points[i][j];
                     let tempX = x * Math.cos(rotY) - z * Math.sin(rotY); let tempZ = x * Math.sin(rotY) + z * Math.cos(rotY);
                     x = tempX; z = tempZ;
                     let tempY = y * Math.cos(rotX) - z * Math.sin(rotX); tempZ = y * Math.sin(rotX) + z * Math.cos(rotX);
                     y = tempY; z = tempZ;
-                    projectedRow.push({x, y, z, visible: z > -baseRadius * 0.5});
+                    projectedRow.push({ x, y, z, visible: z > -baseRadius * 0.5 });
                 }
                 projectedPoints.push(projectedRow);
             }
-            
+
             ctx.lineWidth = 0.8;
             for (let i = 0; i < totalLat; i++) {
                 for (let j = 0; j < totalLon; j++) {
-                    const p1 = projectedPoints[i][j]; const p2 = projectedPoints[i+1][j]; const p3 = projectedPoints[i][j+1];
+                    const p1 = projectedPoints[i][j]; const p2 = projectedPoints[i + 1][j]; const p3 = projectedPoints[i][j + 1];
                     if (p1.visible && p2.visible) {
-                         ctx.strokeStyle = `rgba(0, 255, 255, ${geoidFadeFraction * 0.5})`;
-                         ctx.beginPath(); ctx.moveTo(p1.x, p1.y); ctx.lineTo(p2.x, p2.y); ctx.stroke();
+                        ctx.strokeStyle = `rgba(0, 255, 255, ${geoidFadeFraction * 0.5})`;
+                        ctx.beginPath(); ctx.moveTo(p1.x, p1.y); ctx.lineTo(p2.x, p2.y); ctx.stroke();
                     }
                     if (p1.visible && p3.visible) {
-                         ctx.strokeStyle = `rgba(0, 255, 255, ${geoidFadeFraction * 0.5})`;
-                         ctx.beginPath(); ctx.moveTo(p1.x, p1.y); ctx.lineTo(p3.x, p3.y); ctx.stroke();
+                        ctx.strokeStyle = `rgba(0, 255, 255, ${geoidFadeFraction * 0.5})`;
+                        ctx.beginPath(); ctx.moveTo(p1.x, p1.y); ctx.lineTo(p3.x, p3.y); ctx.stroke();
                     }
                 }
             }
@@ -388,9 +389,9 @@ const App: React.FC = () => {
                 let tempY = satY * Math.cos(rotX) - satZ * Math.sin(rotX); tempZ = satY * Math.sin(rotX) + satZ * Math.cos(rotX);
                 satY = tempY; satZ = tempZ;
                 if (satZ > 0) {
-                     const scale = (satZ + orbitRadius) / (orbitRadius * 2);
-                     ctx.beginPath(); ctx.arc(satX, satY, 2 * scale, 0, Math.PI * 2);
-                     ctx.fillStyle = `rgba(0, 255, 255, ${geoidFadeFraction * (0.7 + scale * 0.3)})`; ctx.fill();
+                    const scale = (satZ + orbitRadius) / (orbitRadius * 2);
+                    ctx.beginPath(); ctx.arc(satX, satY, 2 * scale, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(0, 255, 255, ${geoidFadeFraction * (0.7 + scale * 0.3)})`; ctx.fill();
                 }
             }
             ctx.restore();
@@ -401,7 +402,7 @@ const App: React.FC = () => {
             const scroll_y = window.scrollY;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             time += 0.01;
-            
+
             const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
             const geoidFadeStart = scrollHeight * 0.6;
             const fadeOutDuration = scrollHeight * 0.35;
@@ -436,9 +437,9 @@ const App: React.FC = () => {
         const resizeCanvas = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; init(); };
         const handleMouseMove = (event: MouseEvent) => { mouse.x = event.clientX; mouse.y = event.clientY; };
         const handleMouseOut = () => { mouse.x = null; mouse.y = null; };
-        
+
         window.addEventListener('resize', resizeCanvas); window.addEventListener('mousemove', handleMouseMove); window.addEventListener('mouseout', handleMouseOut);
-        
+
         resizeCanvas();
         animate();
 
@@ -481,13 +482,13 @@ const App: React.FC = () => {
     return (
         <div className="bg-[#0a192f] selection:bg-cyan-900/40">
             <canvas id="particle-canvas" className="fixed top-0 left-0 w-screen h-screen z-0" />
-            
-            <ContactModal 
-              isOpen={isContactModalOpen} 
-              onClose={() => setContactModalOpen(false)}
-              formspreeId="YOUR_FORM_ID" // <-- IMPORTANT: Replace with your Formspree ID
+
+            <ContactModal
+                isOpen={isContactModalOpen}
+                onClose={() => setContactModalOpen(false)}
+                formspreeId="YOUR_FORM_ID" // <-- IMPORTANT: Replace with your Formspree ID
             />
-            
+
             {/* Corner Orbits Element */}
             <div className="corner-hero-orbits" ref={cornerOrbitsRef}>
                 <svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMax slice">
@@ -507,7 +508,7 @@ const App: React.FC = () => {
                             </textPath>
                         </text>
                     </g>
-                    
+
                     {/* Orbit 2: Robotics */}
                     <g className="orbit-group corner-orbit-2" style={{ transformOrigin: '0 800px' }}>
                         <use href="#corner-orbit-path-2" fill="none" stroke="rgba(0, 255, 255, 0.7)" strokeWidth="1" strokeDasharray="1 5" />
@@ -517,7 +518,7 @@ const App: React.FC = () => {
                             </textPath>
                         </text>
                     </g>
-                    
+
                     {/* Orbit 3: Automation */}
                     <g className="orbit-group corner-orbit-3" style={{ transformOrigin: '0 800px' }}>
                         <use href="#corner-orbit-path-3" fill="none" stroke="rgba(0, 255, 255, 0.6)" strokeWidth="0.75" />
@@ -543,15 +544,15 @@ const App: React.FC = () => {
             <div className="relative z-10">
                 {/* Left Social Bar */}
                 <div className="fixed bottom-0 left-4 md:left-8 z-30 hidden md:flex flex-col items-center">
-                  <div className="flex flex-col items-center space-y-4">
-                      <a href={contactInfo.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                          <GitHubIcon className="h-6 w-6 text-slate-400 hover:text-cyan-400 hover:translate-y-1 transition-all" />
-                      </a>
-                      <a href={contactInfo.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                          <LinkedInIcon className="h-6 w-6 text-slate-400 hover:text-cyan-400 hover:translate-y-1 transition-all" />
-                      </a>
-                  </div>
-                  <div className="h-24 w-px bg-slate-600 mt-6"></div>
+                    <div className="flex flex-col items-center space-y-4">
+                        <a href={contactInfo.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <GitHubIcon className="h-6 w-6 text-slate-400 hover:text-cyan-400 hover:translate-y-1 transition-all" />
+                        </a>
+                        <a href={contactInfo.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <LinkedInIcon className="h-6 w-6 text-slate-400 hover:text-cyan-400 hover:translate-y-1 transition-all" />
+                        </a>
+                    </div>
+                    <div className="h-24 w-px bg-slate-600 mt-6"></div>
                 </div>
 
                 {/* Right Email Bar */}
@@ -567,14 +568,14 @@ const App: React.FC = () => {
                         <a href="#home" onClick={(e) => handleNavClick(e, 'home')} className="text-2xl font-bold text-cyan-400 hover:text-cyan-300 transition-colors">DP</a>
                         <div className="hidden md:flex items-center space-x-6">
                             {['about', 'experience', 'projects', 'contact'].map((item, i) => (
-                              <a 
-                                key={item} 
-                                href={`#${item}`} 
-                                onClick={(e) => handleNavClick(e, item)}
-                                className="hover:text-cyan-400 transition-colors"
-                              >
-                                <span className="text-cyan-400 font-mono mr-1">0{i + 1}.</span> {item.charAt(0).toUpperCase() + item.slice(1)}
-                              </a>
+                                <a
+                                    key={item}
+                                    href={`#${item}`}
+                                    onClick={(e) => handleNavClick(e, item)}
+                                    className="hover:text-cyan-400 transition-colors"
+                                >
+                                    <span className="text-cyan-400 font-mono mr-1">0{i + 1}.</span> {item.charAt(0).toUpperCase() + item.slice(1)}
+                                </a>
                             ))}
                         </div>
                     </nav>
@@ -585,22 +586,22 @@ const App: React.FC = () => {
                     <section id="home" className="flex flex-col md:flex-row items-center justify-center min-h-screen max-w-4xl mx-auto gap-12">
                         <div className="md:w-3/5">
                             <FadeInSection>
-                              <p className="text-cyan-400 mb-4 font-mono">Hi, my name is</p>
-                              <h1 className="text-5xl md:text-7xl font-extrabold text-slate-200 mb-3">{contactInfo.name}</h1>
-                              <h2 className="text-4xl md:text-5xl font-bold text-slate-400 mb-8">{contactInfo.title}</h2>
-                              <button
-                                onClick={() => setContactModalOpen(true)}
-                                className="inline-block mt-8 bg-transparent border border-cyan-400 text-cyan-400 font-medium py-3 px-8 rounded hover:bg-cyan-400/10 transition-colors duration-300"
-                              >
-                                Let's Talk
-                              </button>
+                                <p className="text-cyan-400 mb-8 font-mono">Hi, my name is</p>
+                                <h1 className="text-5xl md:text-7xl font-extrabold text-slate-200 mb-8">{contactInfo.name}</h1>
+                                <h2 className="text-3xl md:text-5xl font-bold text-slate-400 mb-12 leading-relaxed">{contactInfo.title}</h2>
+                                <button
+                                    onClick={() => setContactModalOpen(true)}
+                                    className="inline-block mt-8 bg-transparent border border-cyan-400 text-cyan-400 font-medium py-3 px-8 rounded hover:bg-cyan-400/10 transition-colors duration-300"
+                                >
+                                    Let's Talk
+                                </button>
                             </FadeInSection>
                         </div>
                         <div className="md:w-2/5 flex justify-center items-center">
                             <FadeInSection delay={200}>
                                 <div className="w-64 h-64 md:w-80 md:h-80 relative flex justify-center items-center">
                                     <img
-                                        src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAEgASADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1VZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/aAAwDAQACEQMRAD8A8qooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA//Z"
+                                        src={profileImage}
                                         alt="David F. Pulido"
                                         className="w-44 h-44 md:w-56 md:h-56 rounded-full object-cover border-2 border-cyan-400/70 shadow-2xl shadow-cyan-500/10 z-10"
                                     />
@@ -612,27 +613,27 @@ const App: React.FC = () => {
                                             <circle cx="100" cy="100" r="95" fill="none" stroke="rgba(0, 255, 255, 0.2)" strokeWidth="0.5" strokeDasharray="4 4" />
                                             <g transform="translate(100 5)" className="orbit-icon">
                                                 <rect x="-10" y="-3" width="20" height="6" rx="1" fill="rgba(0, 255, 255, 0.8)" />
-                                                <line x1="-12" y1="0" x2="-15" y2="-5" stroke="rgba(0, 255, 255, 0.8)" strokeWidth="1"/>
-                                                <line x1="12" y1="0" x2="15" y2="5" stroke="rgba(0, 255, 255, 0.8)" strokeWidth="1"/>
+                                                <line x1="-12" y1="0" x2="-15" y2="-5" stroke="rgba(0, 255, 255, 0.8)" strokeWidth="1" />
+                                                <line x1="12" y1="0" x2="15" y2="5" stroke="rgba(0, 255, 255, 0.8)" strokeWidth="1" />
                                                 <rect x="-18" y="-9" width="4" height="18" fill="rgba(0, 255, 255, 0.5)" />
                                                 <rect x="14" y="-9" width="4" height="18" fill="rgba(0, 255, 255, 0.5)" />
                                             </g>
                                         </g>
-                                        
+
                                         {/* Orbit 2: Drone */}
                                         <g className="orbit-group orbit-2">
                                             <circle cx="100" cy="100" r="85" fill="none" stroke="rgba(0, 255, 255, 0.2)" strokeWidth="0.5" strokeDasharray="1 5" />
                                             <g transform="translate(185 100)" className="orbit-icon">
-                                                 <circle cx="0" cy="0" r="4" fill="rgba(0, 255, 255, 0.8)" />
-                                                 <line x1="-10" y1="0" x2="10" y2="0" stroke="rgba(0, 255, 255, 0.8)" strokeWidth="1" />
-                                                 <line x1="0" y1="-10" x2="0" y2="10" stroke="rgba(0, 255, 255, 0.8)" strokeWidth="1" />
-                                                 <circle cx="-9" cy="-9" r="2" stroke="rgba(0, 255, 255, 0.8)" strokeWidth="0.5" fill="none" />
-                                                 <circle cx="9" cy="-9" r="2" stroke="rgba(0, 255, 255, 0.8)" strokeWidth="0.5" fill="none" />
-                                                 <circle cx="-9" cy="9" r="2" stroke="rgba(0, 255, 255, 0.8)" strokeWidth="0.5" fill="none" />
-                                                 <circle cx="9" cy="9" r="2" stroke="rgba(0, 255, 255, 0.8)" strokeWidth="0.5" fill="none" />
+                                                <circle cx="0" cy="0" r="4" fill="rgba(0, 255, 255, 0.8)" />
+                                                <line x1="-10" y1="0" x2="10" y2="0" stroke="rgba(0, 255, 255, 0.8)" strokeWidth="1" />
+                                                <line x1="0" y1="-10" x2="0" y2="10" stroke="rgba(0, 255, 255, 0.8)" strokeWidth="1" />
+                                                <circle cx="-9" cy="-9" r="2" stroke="rgba(0, 255, 255, 0.8)" strokeWidth="0.5" fill="none" />
+                                                <circle cx="9" cy="-9" r="2" stroke="rgba(0, 255, 255, 0.8)" strokeWidth="0.5" fill="none" />
+                                                <circle cx="-9" cy="9" r="2" stroke="rgba(0, 255, 255, 0.8)" strokeWidth="0.5" fill="none" />
+                                                <circle cx="9" cy="9" r="2" stroke="rgba(0, 255, 255, 0.8)" strokeWidth="0.5" fill="none" />
                                             </g>
                                         </g>
-                                        
+
                                         {/* Orbit 3: Robotic Arm */}
                                         <g className="orbit-group orbit-3">
                                             <circle cx="100" cy="100" r="90" fill="none" stroke="rgba(0, 255, 255, 0.15)" strokeWidth="0.25" />
@@ -679,75 +680,75 @@ const App: React.FC = () => {
                                 ))}
                             </div>
                             <div className="min-h-[250px]">
-                              <FadeInSection key={activeExperienceTab}>
-                                <h3 className="text-xl font-bold text-slate-200">{activeExperience.role} <span className="text-cyan-400">@ {activeExperience.company}</span></h3>
-                                <p className="text-slate-400 text-sm mb-4 font-mono">{activeExperience.period}</p>
-                                <ul className="space-y-2 text-slate-400">
-                                    {activeExperience.description.map((item, i) => (
-                                        <li key={i} className="flex">
-                                            <span className="text-cyan-400 mr-3">▹</span>
-                                            {item}
-                                        </li>
-                                    ))}
-                                </ul>
-                              </FadeInSection>
+                                <FadeInSection key={activeExperienceTab}>
+                                    <h3 className="text-xl font-bold text-slate-200">{activeExperience.role} <span className="text-cyan-400">@ {activeExperience.company}</span></h3>
+                                    <p className="text-slate-400 text-sm mb-4 font-mono">{activeExperience.period}</p>
+                                    <ul className="space-y-2 text-slate-400">
+                                        {activeExperience.description.map((item, i) => (
+                                            <li key={i} className="flex">
+                                                <span className="text-cyan-400 mr-3">▹</span>
+                                                {item}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </FadeInSection>
                             </div>
                         </div>
                     </Section>
-                    
+
                     <Section id="projects" title="Things I've Built">
                         <div className="grid md:grid-cols-2 gap-6">
                             {projectsData.map((project, index) => (
-                               <FadeInSection key={index} delay={index * 100}>
-                                <div className="bg-slate-800/50 rounded-md shadow-lg overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-2 hover:ring-1 hover:ring-cyan-400/50">
-                                    
-                                    <div className="w-full h-48 bg-slate-900">
-                                        {project.videoUrl ? (
-                                            <video src={project.videoUrl} autoPlay loop muted playsInline className="w-full h-full object-cover" />
-                                        ) : project.imageUrl ? (
-                                            <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover" />
-                                        ) : <div className="w-full h-full flex items-center justify-center text-slate-500">No media available</div>}
-                                    </div>
-                                    
-                                    <div className="p-6 flex flex-col flex-grow">
-                                        <h3 className="font-bold text-xl text-slate-200 mb-2">{project.title}</h3>
-                                        <p className="text-slate-400 mb-4 text-sm flex-grow">{project.description}</p>
-                                        <div className="flex flex-wrap gap-2 font-mono text-xs text-cyan-300 mt-auto pt-4">
-                                            {project.tags.map((tag, i) => (
-                                                <span key={i} className="bg-cyan-900/50 px-2 py-1 rounded">{tag}</span>
-                                            ))}
+                                <FadeInSection key={index} delay={index * 100}>
+                                    <div className="bg-slate-800/50 rounded-md shadow-lg overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-2 hover:ring-1 hover:ring-cyan-400/50">
+
+                                        <div className="w-full h-48 bg-slate-900">
+                                            {project.videoUrl ? (
+                                                <video src={project.videoUrl} autoPlay loop muted playsInline className="w-full h-full object-cover" />
+                                            ) : project.imageUrl ? (
+                                                <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover" />
+                                            ) : <div className="w-full h-full flex items-center justify-center text-slate-500">No media available</div>}
+                                        </div>
+
+                                        <div className="p-6 flex flex-col flex-grow">
+                                            <h3 className="font-bold text-xl text-slate-200 mb-2">{project.title}</h3>
+                                            <p className="text-slate-400 mb-4 text-sm flex-grow">{project.description}</p>
+                                            <div className="flex flex-wrap gap-2 font-mono text-xs text-cyan-300 mt-auto pt-4">
+                                                {project.tags.map((tag, i) => (
+                                                    <span key={i} className="bg-cyan-900/50 px-2 py-1 rounded">{tag}</span>
+                                                ))}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                               </FadeInSection>
+                                </FadeInSection>
                             ))}
                         </div>
                     </Section>
 
                     <Section id="skills" title="Core Skills">
-                       <FadeInSection>
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-center">
-                            {skillsData.map((skill, index) => (
-                                <div key={index} className="bg-slate-800/50 p-4 rounded-md flex flex-col items-center justify-center">
-                                    <skill.icon className="h-8 w-8 text-cyan-400 mb-2" />
-                                    <h4 className="font-semibold text-slate-200 text-sm">{skill.name}</h4>
-                                </div>
-                            ))}
-                        </div>
+                        <FadeInSection>
+                            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-center">
+                                {skillsData.map((skill, index) => (
+                                    <div key={index} className="bg-slate-800/50 p-4 rounded-md flex flex-col items-center justify-center">
+                                        <skill.icon className="h-8 w-8 text-cyan-400 mb-2" />
+                                        <h4 className="font-semibold text-slate-200 text-sm">{skill.name}</h4>
+                                    </div>
+                                ))}
+                            </div>
                         </FadeInSection>
                     </Section>
-                    
+
                     <Section id="contact" title="Get In Touch">
                         <div className="max-w-xl mx-auto text-center">
-                          <FadeInSection>
-                            <p className="text-slate-400 mb-8">I'm currently seeking new opportunities and challenges. Whether you have a question or just want to say hi, my inbox is always open. I'll do my best to get back to you!</p>
-                            <button
-                                onClick={() => setContactModalOpen(true)}
-                                className="inline-block bg-cyan-500 text-white font-bold py-4 px-8 rounded-lg shadow-[0_0_15px_rgba(56,189,248,0.4)] hover:bg-cyan-600 transition-colors duration-300"
-                            >
-                                Let's Talk
-                            </button>
-                          </FadeInSection>
+                            <FadeInSection>
+                                <p className="text-slate-400 mb-8">I'm currently seeking new opportunities and challenges. Whether you have a question or just want to say hi, my inbox is always open. I'll do my best to get back to you!</p>
+                                <button
+                                    onClick={() => setContactModalOpen(true)}
+                                    className="inline-block bg-cyan-500 text-white font-bold py-4 px-8 rounded-lg shadow-[0_0_15px_rgba(56,189,248,0.4)] hover:bg-cyan-600 transition-colors duration-300"
+                                >
+                                    Let's Talk
+                                </button>
+                            </FadeInSection>
                         </div>
                     </Section>
                 </main>
