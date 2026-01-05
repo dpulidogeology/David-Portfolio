@@ -10,20 +10,23 @@ import { GitHubIcon } from './components/icons/GitHubIcon';
 import { LinkedInIcon } from './components/icons/LinkedInIcon';
 import { ContactModal } from './components/ContactModal';
 import profileImage from './assets/David-Profile.jpg';
+import duckietownImage from './assets/duckietown.jpg';
+import uavGncImage from './assets/thesis.png';
+import dsmImage from './assets/dsm-procedural_generator.png';
 
 
 // --- DATA ---
 const contactInfo = {
     name: "David F. Pulido",
-    title: "Geology | M.Sc. Geomatics | Robotics & Autonomous Systems",
+    title: "Guidance, Navigation & Control (GNC) Systems Engineer",
     location: "Karlsruhe, Germany",
-    email: "dpulidogeology@gmail.com",
+    email: "dpulidoprojects@gmail.com",
     phone: "+4915231362028",
     linkedin: "https://www.linkedin.com/in/david-f-pulido-524790137",
     github: "https://github.com/dpulidogeology",
 };
 
-const summary = "Hello! I'm David, a multidisciplinary engineer with a BSc in Geology and currently completing my MSc in Geomatics at Karlsruhe University of Applied Sciences in Germany. I have experience in Earth Observation (EO), UAV based autonomous navigation, and developing geospatial dashboards and analytics platforms. I'm passionate about developing intelligent, autonomous, and data-driven systems at the intersection of space, robotics, and geospatial technologies.";
+const summary = "I engineer the Guidance, Navigation & Control (GNC) systems and the Backend Infrastructure (DevOps) for autonomous UAVs and ground robots.\n\nCore Focus: 🚀 Robotics: ROS2, Gazebo, NMPC (Acados), PX4. 🌍 Geospatial: CesiumJS, GeoServer, QGIS, Python. ☁️ Infrastructure: Docker, FastAPI, CI/CD, Linux.";
 
 const skillsData: Skill[] = [
     { name: 'Autonomous Vehicles', icon: CpuChipIcon },
@@ -35,24 +38,33 @@ const skillsData: Skill[] = [
 ];
 
 const experienceData: Experience[] = [
-    { role: "HIWI Robot Hub Academie (Duckietown Project)", company: "IRAS", period: "Feb 2025 - Present", location: "Karlsruhe, Germany", description: ["Developing Autonomous Navigation Systems and AI algorithms for Duckiebots in the Duckietown project."] },
-    { role: "HIWI in Navigation Technologies", company: "Fraunhofer IOSB", period: "Sep 2024 - Oct 2025", location: "Karlsruhe, Germany", description: ["Setting up Geoserver environments for WMS and WMS-T layers using NetCDF weather data for realtime Apps and general research in navigation technologies for Multidrone missions."] },
+    { role: "Autonomous Systems Engineer for the Robot Hub Academie (Duckietown Project)", company: "IRAS", period: "Feb 2025 - Nov 2025", location: "Karlsruhe, Germany", description: ["Developing Autonomous Navigation Systems and AI algorithms for Duckiebots in the Duckietown project."] },
+    { role: "Navigation Technologies", company: "Fraunhofer IOSB", period: "Sep 2024 - Oct 2025", location: "Karlsruhe, Germany", description: ["Setting up Geoserver environments for WMS and WMS-T layers using NetCDF weather data for realtime Apps and general research in navigation technologies for Multidrone missions."] },
     { role: "SAP Rural Sourcing Analytics", company: "SAP", period: "Oct 2023 - Sep 2024", location: "Karlsruhe, Germany", description: ["Researched geospatial datasets and ETL data methodology for implementing EUDR policy into SAP/HANA DB.", "Developed an AI project using high-resolution satellite imagery and ML to classify crops and count trees."] },
     { role: "Executive of Digital Innovation", company: "Coffee Rocks", period: "Feb 2021 - Sep 2022", location: "Remote", description: ["Served as IT Project Director & Researcher in Augmented Reality, Virtual Reality, Geospatial technologies, 3D modeling, remote sensing & data science projects for earth sciences applications."] },
 ];
 
 const projectsData: Project[] = [
     {
-        title: "Duckietown Robotics Project @ IRAS",
+        title: "FMS-CLI Robotics Manager @ IRAS",
         description: "Leading STEM initiatives and tutoring students in robotics using the Duckietown platform. Developed challenges involving autonomous navigation, lane following, and YOLO-based object detection with ROS2. Recently implemented autonomous and manual gamepad controls for a live demonstration at the Science Days Exhibition 2025.",
         tags: ["Robotics", "ROS2", "Python", "AI", "Computer Vision", "STEM"],
-        videoUrl: "YOUR_DUCKIETOWN_VIDEO_URL_HERE.mp4"
+        imageUrl: duckietownImage,
+        githubUrl: "https://github.com/dpulidogeology/DuckieFleet-FMS-CLI"
     },
     {
-        title: "Master Thesis: NMPC Simulation Framework",
-        description: "For my thesis with Fraunhofer IOSB & H-KA, I designed and built a simulation framework to test Nonlinear Model Predictive Control (NMPC) algorithms for autonomous UAV swarm navigation and control.",
+        title: "Real-Time UAV GNC Framework",
+        description: "Developed a containerized Geodetically-Aware NMPC system capable of handling Earth's curvature for long-distance missions. Features a custom UKF-NMPC dual-loop architecture that splits state estimation from control, enabling real-time performance. Successfully validated in a 100km+ autonomous flight simulation across complex regional landscapes.",
+        tags: ["Master Thesis", "NMPC", "Guidance & Navigation", "Control Systems", "Simulation", "Python"],
+        imageUrl: uavGncImage,
+        githubUrl: "https://github.com/dpulidogeology/realtime-geodetic-nmpc-caas-uav-framework"
+    },
+    {
+        title: "Procedural DSM Generator",
+        description: "Designed a Python-based tool to generate synthetic, geodetically accurate Digital Surface Models (DSMs) usando Fractal Brownian Motion (FBM). It enables the creation of infinite custom terrain datasets, exported as GeoTIFFs, to validate UAV flight planning and collision avoidance algorithms in simulated environments like Gazebo or PX4.",
         tags: ["Master Thesis", "NMPC", "UAV Swarms", "Control Systems", "Simulation", "Python"],
-        videoUrl: "YOUR_THESIS_VIDEO_URL_HERE.mp4"
+        imageUrl: dsmImage,
+        githubUrl: "https://github.com/dpulidogeology/procedural-terrain-dsm-enu-generator"
     }
 ];
 
@@ -565,7 +577,7 @@ const App: React.FC = () => {
 
                 <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-[#0a192f]/80 backdrop-blur-lg shadow-2xl' : 'bg-transparent'}`}>
                     <nav className="container mx-auto flex justify-between items-center p-5 text-slate-300">
-                        <a href="#home" onClick={(e) => handleNavClick(e, 'home')} className="text-2xl font-bold text-cyan-400 hover:text-cyan-300 transition-colors">DP</a>
+                        <a href="#home" onClick={(e) => handleNavClick(e, 'home')} className="text-lg font-bold text-cyan-400 hover:text-cyan-300 transition-colors"><span className="text-xl">David Pulido</span> <span className="text-slate-500 font-normal">| GNC & Geospatial Engineer</span></a>
                         <div className="hidden md:flex items-center space-x-6">
                             {['about', 'experience', 'projects', 'contact'].map((item, i) => (
                                 <a
@@ -588,7 +600,8 @@ const App: React.FC = () => {
                             <FadeInSection>
                                 <p className="text-cyan-400 mb-8 font-mono">Hi, my name is</p>
                                 <h1 className="text-5xl md:text-7xl font-extrabold text-slate-200 mb-8">{contactInfo.name}</h1>
-                                <h2 className="text-3xl md:text-5xl font-bold text-slate-400 mb-12 leading-relaxed">{contactInfo.title}</h2>
+                                <h2 className="text-3xl md:text-5xl font-bold text-slate-400 mb-6 leading-relaxed">{contactInfo.title}</h2>
+                                <p className="text-lg md:text-xl text-slate-300 mb-12 leading-relaxed max-w-2xl font-light">Bridging the gap between Physical World Constraints &amp; Software Performance.</p>
                                 <button
                                     onClick={() => setContactModalOpen(true)}
                                     className="inline-block mt-8 bg-transparent border border-cyan-400 text-cyan-400 font-medium py-3 px-8 rounded hover:bg-cyan-400/10 transition-colors duration-300"
@@ -700,26 +713,28 @@ const App: React.FC = () => {
                         <div className="grid md:grid-cols-2 gap-6">
                             {projectsData.map((project, index) => (
                                 <FadeInSection key={index} delay={index * 100}>
-                                    <div className="bg-slate-800/50 rounded-md shadow-lg overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-2 hover:ring-1 hover:ring-cyan-400/50">
+                                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="block">
+                                        <div className="bg-slate-800/50 rounded-md shadow-lg overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-2 hover:ring-1 hover:ring-cyan-400/50 cursor-pointer h-full">
 
-                                        <div className="w-full h-48 bg-slate-900">
-                                            {project.videoUrl ? (
-                                                <video src={project.videoUrl} autoPlay loop muted playsInline className="w-full h-full object-cover" />
-                                            ) : project.imageUrl ? (
-                                                <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover" />
-                                            ) : <div className="w-full h-full flex items-center justify-center text-slate-500">No media available</div>}
-                                        </div>
+                                            <div className="w-full h-48 bg-slate-900">
+                                                {project.videoUrl ? (
+                                                    <video src={project.videoUrl} autoPlay loop muted playsInline className="w-full h-full object-cover" />
+                                                ) : project.imageUrl ? (
+                                                    <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover" />
+                                                ) : <div className="w-full h-full flex items-center justify-center text-slate-500">No media available</div>}
+                                            </div>
 
-                                        <div className="p-6 flex flex-col flex-grow">
-                                            <h3 className="font-bold text-xl text-slate-200 mb-2">{project.title}</h3>
-                                            <p className="text-slate-400 mb-4 text-sm flex-grow">{project.description}</p>
-                                            <div className="flex flex-wrap gap-2 font-mono text-xs text-cyan-300 mt-auto pt-4">
-                                                {project.tags.map((tag, i) => (
-                                                    <span key={i} className="bg-cyan-900/50 px-2 py-1 rounded">{tag}</span>
-                                                ))}
+                                            <div className="p-6 flex flex-col flex-grow">
+                                                <h3 className="font-bold text-xl text-slate-200 mb-2">{project.title}</h3>
+                                                <p className="text-slate-400 mb-4 text-sm flex-grow">{project.description}</p>
+                                                <div className="flex flex-wrap gap-2 font-mono text-xs text-cyan-300 mt-auto pt-4">
+                                                    {project.tags.map((tag, i) => (
+                                                        <span key={i} className="bg-cyan-900/50 px-2 py-1 rounded">{tag}</span>
+                                                    ))}
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </FadeInSection>
                             ))}
                         </div>
