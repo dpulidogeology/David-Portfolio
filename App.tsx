@@ -13,6 +13,10 @@ import profileImage from './assets/David-Profile.jpg';
 import duckietownImage from './assets/duckietown.jpg';
 import uavGncImage from './assets/thesis.png';
 import dsmImage from './assets/dsm-procedural_generator.png';
+import geodeticImage from './assets/geodetic-drone-nav.png';
+import irasLogo from './assets/iras.png';
+import iosbLogo from './assets/iosb.png';
+import sapLogo from './assets/Sap.png';
 
 
 // --- DATA ---
@@ -38,9 +42,9 @@ const skillsData: Skill[] = [
 ];
 
 const experienceData: Experience[] = [
-    { role: "Autonomous Systems Engineer for the Robot Hub Academie (Duckietown Project)", company: "IRAS", period: "Feb 2025 - Nov 2025", location: "Karlsruhe, Germany", description: ["Developing Autonomous Navigation Systems and AI algorithms for Duckiebots in the Duckietown project."] },
-    { role: "Navigation Technologies", company: "Fraunhofer IOSB", period: "Sep 2024 - Oct 2025", location: "Karlsruhe, Germany", description: ["Setting up Geoserver environments for WMS and WMS-T layers using NetCDF weather data for realtime Apps and general research in navigation technologies for Multidrone missions."] },
-    { role: "SAP Rural Sourcing Analytics", company: "SAP", period: "Oct 2023 - Sep 2024", location: "Karlsruhe, Germany", description: ["Researched geospatial datasets and ETL data methodology for implementing EUDR policy into SAP/HANA DB.", "Developed an AI project using high-resolution satellite imagery and ML to classify crops and count trees."] },
+    { role: "Autonomous Systems Engineer for the Robot Hub Academie (Duckietown Project)", company: "IRAS", period: "Feb 2025 - Nov 2025", location: "Karlsruhe, Germany", description: ["Lead STEM initiatives and tutoring Master and undergraduate students in robotics using the Duckietown platform.", "Developed autonomous navigation systems and AI algorithms using ROS2, Python, Linux, and Docker for Duckiebots.", "Created challenges and demonstrations involving autonomous navigation, lane following, YOLO-based object detection, and collision avoidance.", "Implemented autonomous and manual gamepad control modes for live demonstration at Science Days Exhibition 2025 in Europapark Messe."], logoUrl: irasLogo },
+    { role: "Navigation Technologies", company: "Fraunhofer IOSB", period: "Sep 2024 - Oct 2025", location: "Karlsruhe, Germany", description: ["Setting up Geoserver environments for WMS and WMS-T layers using NetCDF weather data for realtime Apps and general research in navigation technologies for Multidrone missions."], logoUrl: iosbLogo },
+    { role: "SAP Rural Sourcing Analytics", company: "SAP", period: "Oct 2023 - Sep 2024", location: "Karlsruhe, Germany", description: ["Researched geospatial datasets and ETL data methodology for implementing EUDR policy into SAP/HANA DB.", "Developed an AI project using high-resolution satellite imagery and ML to classify crops and count trees."], logoUrl: sapLogo },
     { role: "Executive of Digital Innovation", company: "Coffee Rocks", period: "Feb 2021 - Sep 2022", location: "Remote", description: ["Served as IT Project Director & Researcher in Augmented Reality, Virtual Reality, Geospatial technologies, 3D modeling, remote sensing & data science projects for earth sciences applications."] },
 ];
 
@@ -62,9 +66,16 @@ const projectsData: Project[] = [
     {
         title: "Procedural DSM Generator",
         description: "Designed a Python-based tool to generate synthetic, geodetically accurate Digital Surface Models (DSMs) usando Fractal Brownian Motion (FBM). It enables the creation of infinite custom terrain datasets, exported as GeoTIFFs, to validate UAV flight planning and collision avoidance algorithms in simulated environments like Gazebo or PX4.",
-        tags: ["Master Thesis", "NMPC", "UAV Swarms", "Control Systems", "Simulation", "Python"],
+        tags: ["Python", "Terrain Generation", "GeoTIFF", "Geospatial", "Procedural Generation", "UAV Simulation"],
         imageUrl: dsmImage,
         githubUrl: "https://github.com/dpulidogeology/procedural-terrain-dsm-enu-generator"
+    },
+    {
+        title: "Geodetic Drone Mission Visualizer",
+        description: "Interactive 3D web application using Three.js to visualize geodetic concepts in UAV navigation. Simulates drone trajectories across WGS84 Ellipsoid, EGM2008 Geoid, and terrain surfaces. Features real-time calculations of orthometric/ellipsoidal heights, ECEF coordinates, and geodetic transformations with dynamic flight planning and mission visualization.",
+        tags: ["Three.js", "Geodesy", "3D Visualization", "JavaScript", "Web3D", "UAV Navigation"],
+        imageUrl: geodeticImage,
+        githubUrl: "https://github.com/dpulidogeology/Geodetic-Drone-Mission.Visualizer"
     }
 ];
 
@@ -498,7 +509,6 @@ const App: React.FC = () => {
             <ContactModal
                 isOpen={isContactModalOpen}
                 onClose={() => setContactModalOpen(false)}
-                formspreeId="YOUR_FORM_ID" // <-- IMPORTANT: Replace with your Formspree ID
             />
 
             {/* Corner Orbits Element */}
@@ -692,10 +702,15 @@ const App: React.FC = () => {
                                     </button>
                                 ))}
                             </div>
-                            <div className="min-h-[250px]">
+                            <div className="min-h-[300px]">
                                 <FadeInSection key={activeExperienceTab}>
-                                    <h3 className="text-xl font-bold text-slate-200">{activeExperience.role} <span className="text-cyan-400">@ {activeExperience.company}</span></h3>
-                                    <p className="text-slate-400 text-sm mb-4 font-mono">{activeExperience.period}</p>
+                                    <div className="flex items-center gap-8 mb-6">
+                                        {activeExperience.logoUrl && <img src={activeExperience.logoUrl} alt={activeExperience.company} className="h-40 w-40 object-contain flex-shrink-0" />}
+                                        <div>
+                                            <h3 className="text-xl font-bold text-slate-200">{activeExperience.role} <span className="text-cyan-400">@ {activeExperience.company}</span></h3>
+                                            <p className="text-slate-400 text-sm font-mono mt-2">{activeExperience.period}</p>
+                                        </div>
+                                    </div>
                                     <ul className="space-y-2 text-slate-400">
                                         {activeExperience.description.map((item, i) => (
                                             <li key={i} className="flex">

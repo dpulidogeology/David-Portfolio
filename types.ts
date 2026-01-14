@@ -6,6 +6,7 @@ export interface Experience {
   period: string;
   location: string;
   description: string[];
+  logoUrl?: string;
 }
 
 export interface Project {

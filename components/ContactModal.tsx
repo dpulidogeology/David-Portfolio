@@ -1,20 +1,24 @@
 import React, { useState, useEffect } from 'react';
+import emailjs from '@emailjs/browser';
 import { XMarkIcon } from './icons/XMarkIcon';
 
 interface ContactModalProps {
   isOpen: boolean;
   onClose: () => void;
-  formspreeId: string;
 }
 
-export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, formspreeId }) => {
+export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
+    // Initialize EmailJS with public key
+    emailjs.init('Ep2qCQe8P9Kw4z2gq');
+  }, []);
+
+  useEffect(() => {
     if (!isOpen) {
-      // Reset form state when modal is closed
       setStatus('idle');
       setFormData({ name: '', email: '', message: '' });
       setErrorMessage('');
@@ -31,28 +35,24 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, for
     setErrorMessage('');
 
     try {
-      const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setStatus('success');
-      } else {
-        const data = await response.json();
-        setErrorMessage(data.errors?.map((err: { message: string }) => err.message).join(', ') || 'An unknown error occurred.');
-        setStatus('error');
-      }
-    } catch (error) {
-      setErrorMessage('Failed to send message. Please check your network connection.');
+      const response = await emailjs.send(
+        'service_ly36za6',
+        'template_czse0fa',
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }
+      );
+      console.log('Email sent successfully:', response);
+      setStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error: any) {
+      console.error('EmailJS Error:', error);
+      setErrorMessage(error.text || 'Failed to send message. Please try again.');
       setStatus('error');
     }
   };
-
 
   if (!isOpen) return null;
 
@@ -65,7 +65,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, for
     >
       <div
         className="bg-slate-800 rounded-lg shadow-2xl shadow-cyan-500/10 w-full max-w-lg p-6 md:p-8 relative ring-1 ring-slate-700 transform transition-transform duration-300 animate-slide-up"
-        onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
+        onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
@@ -94,7 +94,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, for
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full bg-slate-900/50 rounded-md border-slate-700 text-slate-300 py-2 px-3 focus:ring-cyan-500 focus:border-cyan-500 transition"
+                  className="w-full bg-slate-900/50 rounded-md border border-slate-700 text-slate-300 py-2 px-3 focus:ring-cyan-500 focus:border-cyan-500 transition"
                 />
               </div>
               <div>
@@ -106,7 +106,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, for
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full bg-slate-900/50 rounded-md border-slate-700 text-slate-300 py-2 px-3 focus:ring-cyan-500 focus:border-cyan-500 transition"
+                  className="w-full bg-slate-900/50 rounded-md border border-slate-700 text-slate-300 py-2 px-3 focus:ring-cyan-500 focus:border-cyan-500 transition"
                 />
               </div>
               <div>
@@ -118,7 +118,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, for
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full bg-slate-900/50 rounded-md border-slate-700 text-slate-300 py-2 px-3 focus:ring-cyan-500 focus:border-cyan-500 transition"
+                  className="w-full bg-slate-900/50 rounded-md border border-slate-700 text-slate-300 py-2 px-3 focus:ring-cyan-500 focus:border-cyan-500 transition"
                 ></textarea>
               </div>
               <div>
