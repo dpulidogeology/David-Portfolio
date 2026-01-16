@@ -1,145 +1,235 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-ar" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>David F. Pulido - Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      /* A more subtle, modern scrollbar */
-      ::-webkit-scrollbar {
-        width: 8px;
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>David F. Pulido - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* A more subtle, modern scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #0a192f;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #303C55;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #4F5E7E;
+    }
+
+    body {
+      font-family: sans-serif;
+      background-color: #0a192f;
+      /* Set base background color */
+    }
+
+    #particle-canvas {
+      will-change: transform;
+    }
+
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(20px);
+      visibility: hidden;
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      will-change: opacity, visibility;
+    }
+
+    .fade-in-section.is-visible {
+      opacity: 1;
+      transform: none;
+      visibility: visible;
+    }
+
+    /* Animation for the hero skills orbit */
+    @keyframes rotate-clockwise {
+      from {
+        transform: rotate(0deg);
       }
-      ::-webkit-scrollbar-track {
-        background: #0a192f; 
+
+      to {
+        transform: rotate(360deg);
       }
-      ::-webkit-scrollbar-thumb {
-        background: #303C55;
-        border-radius: 4px;
+    }
+
+    @keyframes rotate-counter-clockwise {
+      from {
+        transform: rotate(0deg);
       }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #4F5E7E; 
+
+      to {
+        transform: rotate(-360deg);
       }
-      body {
-        font-family: sans-serif;
-        background-color: #0a192f; /* Set base background color */
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 0.8;
+        transform: scale(1);
       }
-      #particle-canvas {
-        will-change: transform;
-      }
-      .fade-in-section {
-        opacity: 0;
-        transform: translateY(20px);
-        visibility: hidden;
-        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        will-change: opacity, visibility;
-      }
-      .fade-in-section.is-visible {
+
+      50% {
         opacity: 1;
-        transform: none;
-        visibility: visible;
+        transform: scale(1.05);
       }
-      
-      /* Animation for the hero skills orbit */
-      @keyframes rotate-clockwise {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
+    }
+
+    .orbit-group {
+      transform-origin: center;
+    }
+
+    .orbit-1 {
+      animation: rotate-clockwise 40s linear infinite;
+    }
+
+    .orbit-2 {
+      animation: rotate-counter-clockwise 30s linear infinite;
+    }
+
+    .orbit-3 {
+      animation: rotate-clockwise 50s linear infinite;
+    }
+
+    .orbit-4 {
+      animation: rotate-counter-clockwise 60s linear infinite;
+    }
+
+    .orbit-icon {
+      animation: pulse 3s ease-in-out infinite;
+      transform-origin: center;
+      will-change: transform, opacity;
+    }
+
+    /* New Corner Hero Orbits */
+    .corner-hero-orbits {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 40vw;
+      height: 40vh;
+      max-width: 600px;
+      max-height: 600px;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0;
+      animation: fade-in-corner-orbits 3s ease-out 1s forwards;
+      will-change: transform;
+    }
+
+    @keyframes fade-in-corner-orbits {
+      to {
+        opacity: 0.8;
       }
-      @keyframes rotate-counter-clockwise {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(-360deg); }
+    }
+
+    .corner-orbit-1 {
+      animation: rotate-clockwise 43s linear infinite;
+      animation-delay: 0s;
+    }
+
+    .corner-orbit-2 {
+      animation: rotate-counter-clockwise 37s linear infinite;
+      animation-delay: -5s;
+    }
+
+    .corner-orbit-3 {
+      animation: rotate-clockwise 51s linear infinite;
+      animation-delay: -15s;
+    }
+
+    .corner-orbit-4 {
+      animation: rotate-counter-clockwise 62s linear infinite;
+      animation-delay: -25s;
+    }
+
+    .orbiting-text {
+      font-family: monospace;
+      font-size: 15px;
+      fill: rgba(0, 255, 255, 0.7);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .text-path-1 {
+      animation: move-on-path-clockwise 30s linear infinite;
+    }
+
+    .text-path-2 {
+      animation: move-on-path-counter-clockwise 40s linear infinite;
+    }
+
+    .text-path-3 {
+      animation: move-on-path-clockwise 50s linear infinite;
+    }
+
+    .text-path-4 {
+      animation: move-on-path-counter-clockwise 60s linear infinite;
+    }
+
+
+    @keyframes move-on-path-clockwise {
+      from {
+        startOffset: 0%;
       }
-      @keyframes pulse {
-        0%, 100% { opacity: 0.8; transform: scale(1); }
-        50% { opacity: 1; transform: scale(1.05); }
+
+      to {
+        startOffset: 100%;
       }
-      .orbit-group {
-        transform-origin: center;
+    }
+
+    @keyframes move-on-path-counter-clockwise {
+      from {
+        startOffset: 100%;
       }
-      .orbit-1 { animation: rotate-clockwise 40s linear infinite; }
-      .orbit-2 { animation: rotate-counter-clockwise 30s linear infinite; }
-      .orbit-3 { animation: rotate-clockwise 50s linear infinite; }
-      .orbit-4 { animation: rotate-counter-clockwise 60s linear infinite; }
-      .orbit-icon {
-        animation: pulse 3s ease-in-out infinite;
-        transform-origin: center;
-        will-change: transform, opacity;
+
+      to {
+        startOffset: 0%;
       }
-      
-      /* New Corner Hero Orbits */
+    }
+
+    /* Responsive adjustments for corner orbits */
+    @media (max-width: 1024px) {
+
+      /* For tablets */
       .corner-hero-orbits {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 40vw;
-        height: 40vh;
-        max-width: 600px;
-        max-height: 600px;
-        z-index: 1;
-        pointer-events: none;
-        opacity: 0;
-        animation: fade-in-corner-orbits 3s ease-out 1s forwards;
-        will-change: transform;
+        width: 45vw;
+        height: 45vh;
+      }
+    }
+
+    @media (max-width: 767px) {
+
+      /* For mobile phones */
+      .corner-hero-orbits {
+        width: 80vw;
+        height: 80vw;
+        /* Use vw for both to maintain aspect ratio and prevent clipping */
+        max-width: 350px;
+        max-height: 350px;
+        left: -15vw;
+        /* Reposition to emanate from the corner */
+        bottom: -15vh;
       }
 
+      /* Redefine animation for mobile for a more subtle effect */
       @keyframes fade-in-corner-orbits {
-        to { opacity: 0.8; }
-      }
-      
-      .corner-orbit-1 { animation: rotate-clockwise 43s linear infinite; animation-delay: 0s; }
-      .corner-orbit-2 { animation: rotate-counter-clockwise 37s linear infinite; animation-delay: -5s; }
-      .corner-orbit-3 { animation: rotate-clockwise 51s linear infinite; animation-delay: -15s; }
-      .corner-orbit-4 { animation: rotate-counter-clockwise 62s linear infinite; animation-delay: -25s; }
-
-      .orbiting-text {
-        font-family: monospace;
-        font-size: 15px;
-        fill: rgba(0, 255, 255, 0.7);
-        letter-spacing: 4px;
-        text-transform: uppercase;
-      }
-
-      .text-path-1 { animation: move-on-path-clockwise 30s linear infinite; }
-      .text-path-2 { animation: move-on-path-counter-clockwise 40s linear infinite; }
-      .text-path-3 { animation: move-on-path-clockwise 50s linear infinite; }
-      .text-path-4 { animation: move-on-path-counter-clockwise 60s linear infinite; }
-
-
-      @keyframes move-on-path-clockwise {
-        from { startOffset: 0%; }
-        to { startOffset: 100%; }
-      }
-      @keyframes move-on-path-counter-clockwise {
-        from { startOffset: 100%; }
-        to { startOffset: 0%; }
-      }
-
-      /* Responsive adjustments for corner orbits */
-      @media (max-width: 1024px) { /* For tablets */
-        .corner-hero-orbits {
-          width: 45vw;
-          height: 45vh;
+        to {
+          opacity: 0.5;
         }
       }
-
-      @media (max-width: 767px) { /* For mobile phones */
-        .corner-hero-orbits {
-          width: 80vw;
-          height: 80vw; /* Use vw for both to maintain aspect ratio and prevent clipping */
-          max-width: 350px;
-          max-height: 350px;
-          left: -15vw; /* Reposition to emanate from the corner */
-          bottom: -15vh;
-        }
-
-        /* Redefine animation for mobile for a more subtle effect */
-        @keyframes fade-in-corner-orbits {
-          to { opacity: 0.5; }
-        }
-      }
-
-    </style>
+    }
+  </style>
   <script type="importmap">
 {
   "imports": {
@@ -150,8 +240,10 @@
 }
 </script>
 </head>
-  <body class="text-slate-300">
-    <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
-  </body>
+
+<body class="text-slate-300">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
 </html>

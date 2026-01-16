@@ -605,28 +605,28 @@ const App: React.FC = () => {
 
                 <main className="container mx-auto px-4">
                     {/* Hero Section */}
-                    <section id="home" className="flex flex-col md:flex-row items-center justify-center min-h-screen max-w-4xl mx-auto gap-12">
-                        <div className="md:w-3/5">
+                    <section id="home" className="flex flex-col md:flex-row items-center justify-center min-h-screen max-w-4xl mx-auto gap-8 md:gap-12">
+                        <div className="md:w-3/5 w-full pt-24 md:pt-0">
                             <FadeInSection>
-                                <p className="text-cyan-400 mb-8 font-mono">Hi, my name is</p>
-                                <h1 className="text-5xl md:text-7xl font-extrabold text-slate-200 mb-8">{contactInfo.name}</h1>
-                                <h2 className="text-3xl md:text-5xl font-bold text-slate-400 mb-6 leading-relaxed">{contactInfo.title}</h2>
-                                <p className="text-lg md:text-xl text-slate-300 mb-12 leading-relaxed max-w-2xl font-light">Bridging the gap between Physical World Constraints &amp; Software Performance.</p>
+                                <p className="text-cyan-400 mb-4 md:mb-8 font-mono text-sm md:text-base">Hi, my name is</p>
+                                <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-slate-200 mb-4 md:mb-8 leading-tight">{contactInfo.name}</h1>
+                                <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold text-slate-400 mb-4 md:mb-6 leading-snug md:leading-relaxed">{contactInfo.title}</h2>
+                                <p className="text-base sm:text-lg md:text-lg lg:text-xl text-slate-300 mb-8 md:mb-12 leading-relaxed max-w-2xl font-light">Bridging the gap between Physical World Constraints &amp; Software Performance.</p>
                                 <button
                                     onClick={() => setContactModalOpen(true)}
-                                    className="inline-block mt-8 bg-transparent border border-cyan-400 text-cyan-400 font-medium py-3 px-8 rounded hover:bg-cyan-400/10 transition-colors duration-300"
+                                    className="inline-block mt-6 md:mt-8 bg-transparent border border-cyan-400 text-cyan-400 font-medium py-2 md:py-3 px-6 md:px-8 rounded hover:bg-cyan-400/10 transition-colors duration-300 text-sm md:text-base"
                                 >
                                     Let's Talk
                                 </button>
                             </FadeInSection>
                         </div>
-                        <div className="md:w-2/5 flex justify-center items-center">
+                        <div className="md:w-2/5 w-full flex justify-center items-center pb-12 md:pb-0">
                             <FadeInSection delay={200}>
-                                <div className="w-64 h-64 md:w-80 md:h-80 relative flex justify-center items-center">
+                                <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-80 lg:h-80 relative flex justify-center items-center">
                                     <img
                                         src={profileImage}
                                         alt="David F. Pulido"
-                                        className="w-44 h-44 md:w-56 md:h-56 rounded-full object-cover border-2 border-cyan-400/70 shadow-2xl shadow-cyan-500/10 z-10"
+                                        className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full object-cover border-2 border-cyan-400/70 shadow-2xl shadow-cyan-500/10 z-10"
                                     />
 
                                     {/* Combined Orbits and Icons SVG */}
