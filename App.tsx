@@ -615,7 +615,7 @@ const App: React.FC = () => {
                                 <p className="text-base sm:text-lg md:text-lg lg:text-xl text-slate-300 mb-8 md:mb-12 leading-relaxed max-w-2xl font-light">Bridging the gap between Physical World Constraints &amp; Software Performance.</p>
                                 <button
                                     onClick={() => setContactModalOpen(true)}
-                                    className="inline-block mt-6 md:mt-8 bg-transparent border border-cyan-400 text-cyan-400 font-medium py-2 md:py-3 px-6 md:px-8 rounded hover:bg-cyan-400/10 transition-colors duration-300 text-sm md:text-base"
+                                    className="hidden md:inline-block mt-6 md:mt-8 bg-transparent border border-cyan-400 text-cyan-400 font-medium py-2 md:py-3 px-6 md:px-8 rounded hover:bg-cyan-400/10 transition-colors duration-300 text-sm md:text-base"
                                 >
                                     Let's Talk
                                 </button>
@@ -683,6 +683,16 @@ const App: React.FC = () => {
                                     </svg>
                                 </div>
                             </FadeInSection>
+                        </div>
+
+                        {/* Mobile-only button below profile image */}
+                        <div className="w-full md:hidden flex justify-center pb-8">
+                            <button
+                                onClick={() => setContactModalOpen(true)}
+                                className="bg-transparent border border-cyan-400 text-cyan-400 font-medium py-2 px-6 rounded hover:bg-cyan-400/10 transition-colors duration-300 text-sm"
+                            >
+                                Let's Talk
+                            </button>
                         </div>
                     </section>
 
