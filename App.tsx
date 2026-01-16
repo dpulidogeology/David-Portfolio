@@ -605,9 +605,9 @@ const App: React.FC = () => {
 
                 <main className="container mx-auto px-4">
                     {/* Hero Section */}
-                    <section id="home" className="flex flex-col items-center justify-center min-h-screen max-w-4xl mx-auto gap-8 md:gap-12 pt-24 md:pt-0">
+                    <section id="home" className="flex flex-col md:flex-row items-center justify-center min-h-screen max-w-4xl mx-auto gap-8 md:gap-12">
                         {/* Text content - Full width on mobile, 3/5 on desktop */}
-                        <div className="w-full md:w-3/5 order-1 md:order-1">
+                        <div className="w-full md:w-3/5 pt-24 md:pt-0">
                             <FadeInSection>
                                 <p className="text-cyan-400 mb-4 md:mb-8 font-mono text-sm md:text-base">Hi, my name is</p>
                                 <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-slate-200 mb-4 md:mb-8 leading-tight">{contactInfo.name}</h1>
@@ -622,8 +622,8 @@ const App: React.FC = () => {
                             </FadeInSection>
                         </div>
 
-                        {/* Profile image - Full width on mobile, 2/5 on desktop, appears below text on mobile */}
-                        <div className="w-full md:w-2/5 flex justify-center items-center order-2 md:order-2 md:absolute md:right-0 md:top-1/2 md:transform md:-translate-y-1/2">
+                        {/* Profile image - Full width on mobile (appears below), 2/5 on desktop (appears right) */}
+                        <div className="w-full md:w-2/5 flex justify-center items-center pb-12 md:pb-0">
                             <FadeInSection delay={200}>
                                 <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-80 lg:h-80 relative flex justify-center items-center">
                                     <img
