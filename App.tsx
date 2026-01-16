@@ -117,7 +117,7 @@ const FadeInSection: React.FC<{ children: React.ReactNode; delay?: number }> = (
 
 // --- SECTION COMPONENT ---
 const Section: React.FC<{ id: string, title: string, children: React.ReactNode }> = ({ id, title, children }) => (
-    <section id={id} className="py-24 max-w-4xl mx-auto px-4">
+    <section id={id} className="py-16 md:py-24 max-w-4xl mx-auto px-4">
         <FadeInSection>
             <h2 className="text-3xl font-bold text-slate-200 mb-12 flex items-center">
                 <span className="text-cyan-400 mr-3 text-2xl font-mono">0{['about', 'experience', 'projects', 'skills', 'education', 'contact'].indexOf(id) + 1}.</span>
@@ -605,8 +605,9 @@ const App: React.FC = () => {
 
                 <main className="container mx-auto px-4">
                     {/* Hero Section */}
-                    <section id="home" className="flex flex-col md:flex-row items-center justify-center min-h-screen max-w-4xl mx-auto gap-8 md:gap-12">
-                        <div className="md:w-3/5 w-full pt-24 md:pt-0">
+                    <section id="home" className="flex flex-col items-center justify-center min-h-screen max-w-4xl mx-auto gap-8 md:gap-12 pt-24 md:pt-0">
+                        {/* Text content - Full width on mobile, 3/5 on desktop */}
+                        <div className="w-full md:w-3/5 order-1 md:order-1">
                             <FadeInSection>
                                 <p className="text-cyan-400 mb-4 md:mb-8 font-mono text-sm md:text-base">Hi, my name is</p>
                                 <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-slate-200 mb-4 md:mb-8 leading-tight">{contactInfo.name}</h1>
@@ -620,7 +621,9 @@ const App: React.FC = () => {
                                 </button>
                             </FadeInSection>
                         </div>
-                        <div className="md:w-2/5 w-full flex justify-center items-center pb-12 md:pb-0">
+
+                        {/* Profile image - Full width on mobile, 2/5 on desktop, appears below text on mobile */}
+                        <div className="w-full md:w-2/5 flex justify-center items-center order-2 md:order-2 md:absolute md:right-0 md:top-1/2 md:transform md:-translate-y-1/2">
                             <FadeInSection delay={200}>
                                 <div className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-80 lg:h-80 relative flex justify-center items-center">
                                     <img
@@ -704,11 +707,11 @@ const App: React.FC = () => {
                             </div>
                             <div className="min-h-[300px]">
                                 <FadeInSection key={activeExperienceTab}>
-                                    <div className="flex items-center gap-8 mb-6">
-                                        {activeExperience.logoUrl && <img src={activeExperience.logoUrl} alt={activeExperience.company} className="h-40 w-40 object-contain flex-shrink-0" />}
+                                    <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8 mb-6">
+                                        {activeExperience.logoUrl && <img src={activeExperience.logoUrl} alt={activeExperience.company} className="h-24 w-24 md:h-40 md:w-40 object-contain flex-shrink-0" />}
                                         <div>
-                                            <h3 className="text-xl font-bold text-slate-200">{activeExperience.role} <span className="text-cyan-400">@ {activeExperience.company}</span></h3>
-                                            <p className="text-slate-400 text-sm font-mono mt-2">{activeExperience.period}</p>
+                                            <h3 className="text-lg md:text-xl font-bold text-slate-200">{activeExperience.role} <span className="text-cyan-400">@ {activeExperience.company}</span></h3>
+                                            <p className="text-slate-400 text-xs md:text-sm font-mono mt-2">{activeExperience.period}</p>
                                         </div>
                                     </div>
                                     <ul className="space-y-2 text-slate-400">
@@ -725,13 +728,13 @@ const App: React.FC = () => {
                     </Section>
 
                     <Section id="projects" title="Things I've Built">
-                        <div className="grid md:grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                             {projectsData.map((project, index) => (
                                 <FadeInSection key={index} delay={index * 100}>
                                     <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="block">
                                         <div className="bg-slate-800/50 rounded-md shadow-lg overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-2 hover:ring-1 hover:ring-cyan-400/50 cursor-pointer h-full">
 
-                                            <div className="w-full h-48 bg-slate-900">
+                                            <div className="w-full h-40 md:h-48 bg-slate-900">
                                                 {project.videoUrl ? (
                                                     <video src={project.videoUrl} autoPlay loop muted playsInline className="w-full h-full object-cover" />
                                                 ) : project.imageUrl ? (
@@ -739,9 +742,9 @@ const App: React.FC = () => {
                                                 ) : <div className="w-full h-full flex items-center justify-center text-slate-500">No media available</div>}
                                             </div>
 
-                                            <div className="p-6 flex flex-col flex-grow">
-                                                <h3 className="font-bold text-xl text-slate-200 mb-2">{project.title}</h3>
-                                                <p className="text-slate-400 mb-4 text-sm flex-grow">{project.description}</p>
+                                            <div className="p-4 md:p-6 flex flex-col flex-grow">
+                                                <h3 className="font-bold text-lg md:text-xl text-slate-200 mb-2">{project.title}</h3>
+                                                <p className="text-slate-400 mb-4 text-xs md:text-sm flex-grow">{project.description}</p>
                                                 <div className="flex flex-wrap gap-2 font-mono text-xs text-cyan-300 mt-auto pt-4">
                                                     {project.tags.map((tag, i) => (
                                                         <span key={i} className="bg-cyan-900/50 px-2 py-1 rounded">{tag}</span>
