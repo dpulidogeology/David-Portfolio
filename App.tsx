@@ -9,6 +9,9 @@ import { AcademicCapIcon } from './components/icons/AcademicCapIcon';
 import { GitHubIcon } from './components/icons/GitHubIcon';
 import { LinkedInIcon } from './components/icons/LinkedInIcon';
 import { ContactModal } from './components/ContactModal';
+import { LanguageSwitcher } from './components/LanguageSwitcher';
+import { useLanguage } from './contexts/LanguageContext';
+import { useRotatingRole } from './hooks/useRotatingRole';
 import profileImage from './assets/David-Profile.jpg';
 import duckietownImage from './assets/duckietown.jpg';
 import uavGncImage from './assets/thesis.png';
@@ -17,6 +20,7 @@ import geodeticImage from './assets/geodetic-drone-nav.png';
 import irasLogo from './assets/iras.png';
 import iosbLogo from './assets/iosb.png';
 import sapLogo from './assets/Sap.png';
+
 
 
 // --- DATA ---
@@ -33,47 +37,47 @@ const contactInfo = {
 const summary = "I engineer the Guidance, Navigation & Control (GNC) systems and the Backend Infrastructure (DevOps) for autonomous UAVs and ground robots.\n\nCore Focus: 🚀 Robotics: ROS2, Gazebo, NMPC (Acados), PX4. 🌍 Geospatial: CesiumJS, GeoServer, QGIS, Python. ☁️ Infrastructure: Docker, FastAPI, CI/CD, Linux.";
 
 const skillsData: Skill[] = [
-    { name: 'Autonomous Vehicles', icon: CpuChipIcon },
-    { name: 'Robot Operating System (ROS)', icon: CpuChipIcon },
-    { name: 'Geospatial Data (QGIS, ArcGIS)', icon: GlobeAltIcon },
-    { name: 'Web Development (JS, Python)', icon: CodeBracketIcon },
-    { name: '3D Simulation (Gazebo, Three.js)', icon: CodeBracketIcon },
-    { name: 'Machine Learning (YOLO)', icon: CpuChipIcon },
+    { name: 'autonomous_vehicles', icon: CpuChipIcon },
+    { name: 'ros', icon: CpuChipIcon },
+    { name: 'geospatial', icon: GlobeAltIcon },
+    { name: 'web_development', icon: CodeBracketIcon },
+    { name: 'simulation', icon: CodeBracketIcon },
+    { name: 'machine_learning', icon: CpuChipIcon },
 ];
 
 const experienceData: Experience[] = [
-    { role: "Autonomous Systems Engineer for the Robot Hub Academie (Duckietown Project)", company: "IRAS", period: "Feb 2025 - Nov 2025", location: "Karlsruhe, Germany", description: ["Lead STEM initiatives and tutoring Master and undergraduate students in robotics using the Duckietown platform.", "Developed autonomous navigation systems and AI algorithms using ROS2, Python, Linux, and Docker for Duckiebots.", "Created challenges and demonstrations involving autonomous navigation, lane following, YOLO-based object detection, and collision avoidance.", "Implemented autonomous and manual gamepad control modes for live demonstration at Science Days Exhibition 2025 in Europapark Messe."], logoUrl: irasLogo },
-    { role: "Navigation Technologies", company: "Fraunhofer IOSB", period: "Sep 2024 - Oct 2025", location: "Karlsruhe, Germany", description: ["Setting up Geoserver environments for WMS and WMS-T layers using NetCDF weather data for realtime Apps and general research in navigation technologies for Multidrone missions."], logoUrl: iosbLogo },
-    { role: "SAP Rural Sourcing Analytics", company: "SAP", period: "Oct 2023 - Sep 2024", location: "Karlsruhe, Germany", description: ["Researched geospatial datasets and ETL data methodology for implementing EUDR policy into SAP/HANA DB.", "Developed an AI project using high-resolution satellite imagery and ML to classify crops and count trees."], logoUrl: sapLogo },
-    { role: "Executive of Digital Innovation", company: "Coffee Rocks", period: "Feb 2021 - Sep 2022", location: "Remote", description: ["Served as IT Project Director & Researcher in Augmented Reality, Virtual Reality, Geospatial technologies, 3D modeling, remote sensing & data science projects for earth sciences applications."] },
+    { role: "iras_role", company: "IRAS", period: "Feb 2025 - Nov 2025", location: "Karlsruhe, Germany", description: ["iras_desc_1", "iras_desc_2", "iras_desc_3", "iras_desc_4"], logoUrl: irasLogo },
+    { role: "iosb_role", company: "Fraunhofer IOSB", period: "Sep 2024 - Oct 2025", location: "Karlsruhe, Germany", description: ["iosb_desc"], logoUrl: iosbLogo },
+    { role: "sap_role", company: "SAP", period: "Oct 2023 - Sep 2024", location: "Karlsruhe, Germany", description: ["sap_desc_1", "sap_desc_2"], logoUrl: sapLogo },
+    { role: "coffee_role", company: "Coffee Rocks", period: "Feb 2021 - Sep 2022", location: "Remote", description: ["coffee_desc"] },
 ];
 
 const projectsData: Project[] = [
     {
-        title: "FMS-CLI Robotics Manager @ IRAS",
-        description: "Leading STEM initiatives and tutoring students in robotics using the Duckietown platform. Developed challenges involving autonomous navigation, lane following, and YOLO-based object detection with ROS2. Recently implemented autonomous and manual gamepad controls for a live demonstration at the Science Days Exhibition 2025.",
-        tags: ["Robotics", "ROS2", "Python", "AI", "Computer Vision", "STEM"],
+        title: "fms_title",
+        description: "fms_desc",
+        tags: ["fms_tag_1", "fms_tag_2", "fms_tag_3", "fms_tag_4"],
         imageUrl: duckietownImage,
         githubUrl: "https://github.com/dpulidogeology/DuckieFleet-FMS-CLI"
     },
     {
-        title: "Real-Time UAV GNC Framework",
-        description: "Developed a containerized Geodetically-Aware NMPC system capable of handling Earth's curvature for long-distance missions. Features a custom UKF-NMPC dual-loop architecture that splits state estimation from control, enabling real-time performance. Successfully validated in a 100km+ autonomous flight simulation across complex regional landscapes.",
-        tags: ["Master Thesis", "NMPC", "Guidance & Navigation", "Control Systems", "Simulation", "Python"],
+        title: "nmpc_title",
+        description: "nmpc_desc",
+        tags: ["nmpc_tag_1", "nmpc_tag_2", "nmpc_tag_3", "nmpc_tag_4"],
         imageUrl: uavGncImage,
         githubUrl: "https://github.com/dpulidogeology/realtime-geodetic-nmpc-caas-uav-framework"
     },
     {
-        title: "Procedural DSM Generator",
-        description: "Designed a Python-based tool to generate synthetic, geodetically accurate Digital Surface Models (DSMs) usando Fractal Brownian Motion (FBM). It enables the creation of infinite custom terrain datasets, exported as GeoTIFFs, to validate UAV flight planning and collision avoidance algorithms in simulated environments like Gazebo or PX4.",
-        tags: ["Python", "Terrain Generation", "GeoTIFF", "Geospatial", "Procedural Generation", "UAV Simulation"],
+        title: "dsm_title",
+        description: "dsm_desc",
+        tags: ["dsm_tag_1", "dsm_tag_2", "dsm_tag_3", "dsm_tag_4"],
         imageUrl: dsmImage,
         githubUrl: "https://github.com/dpulidogeology/procedural-terrain-dsm-enu-generator"
     },
     {
-        title: "Geodetic Drone Mission Visualizer",
-        description: "Interactive 3D web application using Three.js to visualize geodetic concepts in UAV navigation. Simulates drone trajectories across WGS84 Ellipsoid, EGM2008 Geoid, and terrain surfaces. Features real-time calculations of orthometric/ellipsoidal heights, ECEF coordinates, and geodetic transformations with dynamic flight planning and mission visualization.",
-        tags: ["Three.js", "Geodesy", "3D Visualization", "JavaScript", "Web3D", "UAV Navigation"],
+        title: "geodetic_title",
+        description: "geodetic_desc",
+        tags: ["geodetic_tag_1", "geodetic_tag_2", "geodetic_tag_3", "geodetic_tag_4"],
         imageUrl: geodeticImage,
         githubUrl: "https://github.com/dpulidogeology/Geodetic-Drone-Mission.Visualizer"
     }
@@ -198,6 +202,8 @@ const App: React.FC = () => {
     const [activeExperienceTab, setActiveExperienceTab] = useState(0);
     const cornerOrbitsRef = useRef<HTMLDivElement>(null);
     const [isContactModalOpen, setContactModalOpen] = useState(false);
+    const { t } = useLanguage();
+    const roleKey = useRotatingRole(5000); // Rotates every 5 seconds - synchronized for navbar and hero
 
 
     // Background effect
@@ -585,9 +591,15 @@ const App: React.FC = () => {
                     <div className="h-24 w-px bg-slate-600 mt-6"></div>
                 </div>
 
+                {/* Language Switcher Bar */}
+                <div className="fixed bottom-96 right-4 md:right-8 z-[60] hidden md:flex flex-col items-center">
+                    <LanguageSwitcher />
+                    <div className="h-16 w-px bg-slate-600 mt-6"></div>
+                </div>
+
                 <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-[#0a192f]/80 backdrop-blur-lg shadow-2xl' : 'bg-transparent'}`}>
                     <nav className="container mx-auto flex justify-between items-center p-5 text-slate-300">
-                        <a href="#home" onClick={(e) => handleNavClick(e, 'home')} className="text-lg font-bold text-cyan-400 hover:text-cyan-300 transition-colors"><span className="text-xl">David Pulido</span> <span className="text-slate-500 font-normal">| GNC & Geospatial Engineer</span></a>
+                        <a href="#home" onClick={(e) => handleNavClick(e, 'home')} className="text-lg font-bold text-cyan-400 hover:text-cyan-300 transition-colors"><span className="text-xl">David Pulido</span> <span className="text-slate-500 font-normal transition-all duration-700 ease-in-out">| {t(`dynamic_roles.${roleKey}`)}</span></a>
                         <div className="hidden md:flex items-center space-x-6">
                             {['about', 'experience', 'projects', 'contact'].map((item, i) => (
                                 <a
@@ -596,7 +608,7 @@ const App: React.FC = () => {
                                     onClick={(e) => handleNavClick(e, item)}
                                     className="hover:text-cyan-400 transition-colors"
                                 >
-                                    <span className="text-cyan-400 font-mono mr-1">0{i + 1}.</span> {item.charAt(0).toUpperCase() + item.slice(1)}
+                                    <span className="text-cyan-400 font-mono mr-1">0{i + 1}.</span> {t(`nav.${item}`)}
                                 </a>
                             ))}
                         </div>
@@ -609,10 +621,10 @@ const App: React.FC = () => {
                         {/* Text content - Full width on mobile, 3/5 on desktop */}
                         <div className="w-full md:w-3/5 pt-24 md:pt-0">
                             <FadeInSection>
-                                <p className="text-cyan-400 mb-4 md:mb-8 font-mono text-sm md:text-base">Hi, my name is</p>
+                                <p className="text-cyan-400 mb-4 md:mb-8 font-mono text-sm md:text-base">{t('hero.greeting')}</p>
                                 <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-slate-200 mb-4 md:mb-8 leading-tight">{contactInfo.name}</h1>
-                                <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold text-slate-400 mb-4 md:mb-6 leading-snug md:leading-relaxed">{contactInfo.title}</h2>
-                                <p className="text-base sm:text-lg md:text-lg lg:text-xl text-slate-300 mb-8 md:mb-12 leading-relaxed max-w-2xl font-light">Bridging the gap between Physical World Constraints &amp; Software Performance.</p>
+                                <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold text-slate-400 mb-4 md:mb-6 leading-snug md:leading-relaxed transition-all duration-700 ease-in-out">{t(`dynamic_roles.${roleKey}`)}</h2>
+                                <p className="text-base sm:text-lg md:text-lg lg:text-xl text-slate-300 mb-8 md:mb-12 leading-relaxed max-w-2xl font-light transition-all duration-700 ease-in-out">{t(`dynamic_taglines.${roleKey}`)}</p>
                                 <button
                                     onClick={() => setContactModalOpen(true)}
                                     className="hidden md:inline-block mt-6 md:mt-8 bg-transparent border border-cyan-400 text-cyan-400 font-medium py-2 md:py-3 px-6 md:px-8 rounded hover:bg-cyan-400/10 transition-colors duration-300 text-sm md:text-base"
@@ -696,13 +708,13 @@ const App: React.FC = () => {
                         </div>
                     </section>
 
-                    <Section id="about" title="About Me">
+                    <Section id="about" title={t('about.title')}>
                         <FadeInSection>
-                            <p className="text-slate-400 max-w-xl leading-relaxed mx-auto text-center md:text-left">{summary}</p>
+                            <p className="text-slate-400 max-w-xl leading-relaxed mx-auto text-center md:text-left">{t('about.summary')}</p>
                         </FadeInSection>
                     </Section>
 
-                    <Section id="experience" title="Where I've Worked">
+                    <Section id="experience" title={t('experience.title')}>
                         <div className="flex flex-col md:flex-row gap-8">
                             <div className="flex md:flex-col md:border-l border-b md:border-b-0 border-slate-700">
                                 {experienceData.map((exp, index) => (
@@ -720,7 +732,7 @@ const App: React.FC = () => {
                                     <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8 mb-6">
                                         {activeExperience.logoUrl && <img src={activeExperience.logoUrl} alt={activeExperience.company} className="h-24 w-24 md:h-40 md:w-40 object-contain flex-shrink-0" />}
                                         <div>
-                                            <h3 className="text-lg md:text-xl font-bold text-slate-200">{activeExperience.role} <span className="text-cyan-400">@ {activeExperience.company}</span></h3>
+                                            <h3 className="text-lg md:text-xl font-bold text-slate-200">{t(`experience_items.${activeExperience.role}`)} <span className="text-cyan-400">@ {activeExperience.company}</span></h3>
                                             <p className="text-slate-400 text-xs md:text-sm font-mono mt-2">{activeExperience.period}</p>
                                         </div>
                                     </div>
@@ -728,7 +740,7 @@ const App: React.FC = () => {
                                         {activeExperience.description.map((item, i) => (
                                             <li key={i} className="flex">
                                                 <span className="text-cyan-400 mr-3">▹</span>
-                                                {item}
+                                                {t(`experience_items.${item}`)}
                                             </li>
                                         ))}
                                     </ul>
@@ -737,7 +749,7 @@ const App: React.FC = () => {
                         </div>
                     </Section>
 
-                    <Section id="projects" title="Things I've Built">
+                    <Section id="projects" title={t('projects.title')}>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                             {projectsData.map((project, index) => (
                                 <FadeInSection key={index} delay={index * 100}>
@@ -748,16 +760,16 @@ const App: React.FC = () => {
                                                 {project.videoUrl ? (
                                                     <video src={project.videoUrl} autoPlay loop muted playsInline className="w-full h-full object-cover" />
                                                 ) : project.imageUrl ? (
-                                                    <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover" />
+                                                    <img src={project.imageUrl} alt={t(`projects_items.${project.title}`)} className="w-full h-full object-cover" />
                                                 ) : <div className="w-full h-full flex items-center justify-center text-slate-500">No media available</div>}
                                             </div>
 
                                             <div className="p-4 md:p-6 flex flex-col flex-grow">
-                                                <h3 className="font-bold text-lg md:text-xl text-slate-200 mb-2">{project.title}</h3>
-                                                <p className="text-slate-400 mb-4 text-xs md:text-sm flex-grow">{project.description}</p>
+                                                <h3 className="font-bold text-lg md:text-xl text-slate-200 mb-2">{t(`projects_items.${project.title}`)}</h3>
+                                                <p className="text-slate-400 mb-4 text-xs md:text-sm flex-grow">{t(`projects_items.${project.description}`)}</p>
                                                 <div className="flex flex-wrap gap-2 font-mono text-xs text-cyan-300 mt-auto pt-4">
                                                     {project.tags.map((tag, i) => (
-                                                        <span key={i} className="bg-cyan-900/50 px-2 py-1 rounded">{tag}</span>
+                                                        <span key={i} className="bg-cyan-900/50 px-2 py-1 rounded">{t(`projects_items.${tag}`)}</span>
                                                     ))}
                                                 </div>
                                             </div>
@@ -768,23 +780,23 @@ const App: React.FC = () => {
                         </div>
                     </Section>
 
-                    <Section id="skills" title="Core Skills">
+                    <Section id="skills" title={t('skills.title')}>
                         <FadeInSection>
                             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-center">
                                 {skillsData.map((skill, index) => (
                                     <div key={index} className="bg-slate-800/50 p-4 rounded-md flex flex-col items-center justify-center">
                                         <skill.icon className="h-8 w-8 text-cyan-400 mb-2" />
-                                        <h4 className="font-semibold text-slate-200 text-sm">{skill.name}</h4>
+                                        <h4 className="font-semibold text-slate-200 text-sm">{t(`skills.${skill.name}`)}</h4>
                                     </div>
                                 ))}
                             </div>
                         </FadeInSection>
                     </Section>
 
-                    <Section id="contact" title="Get In Touch">
+                    <Section id="contact" title={t('contact.title')}>
                         <div className="max-w-xl mx-auto text-center">
                             <FadeInSection>
-                                <p className="text-slate-400 mb-8">I'm currently seeking new opportunities and challenges. Whether you have a question or just want to say hi, my inbox is always open. I'll do my best to get back to you!</p>
+                                <p className="text-slate-400 mb-8">{t('contact.message')}</p>
                                 <button
                                     onClick={() => setContactModalOpen(true)}
                                     className="inline-block bg-cyan-500 text-white font-bold py-4 px-8 rounded-lg shadow-[0_0_15px_rgba(56,189,248,0.4)] hover:bg-cyan-600 transition-colors duration-300"

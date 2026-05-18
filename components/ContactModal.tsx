@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import { XMarkIcon } from './icons/XMarkIcon';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -11,6 +12,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const { t } = useLanguage();
 
   useEffect(() => {
     // Initialize EmailJS with public key
@@ -77,16 +79,16 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
 
         {status === 'success' ? (
           <div className="text-center py-8">
-            <h3 className="text-2xl font-bold text-cyan-400 mb-4">Thank You!</h3>
-            <p className="text-slate-300">Your message has been sent successfully. I'll get back to you soon.</p>
+            <h3 className="text-2xl font-bold text-cyan-400 mb-4">{t('contact.success')}</h3>
+            <p className="text-slate-300">{t('contact.success')}</p>
           </div>
         ) : (
           <>
-            <h2 className="text-3xl font-bold text-slate-200 mb-2">Let's Connect</h2>
-            <p className="text-slate-400 mb-6">Send me a message and I'll get back to you as soon as possible.</p>
+            <h2 className="text-3xl font-bold text-slate-200 mb-2">{t('contact.title')}</h2>
+            <p className="text-slate-400 mb-6">{t('contact.message')}</p>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-slate-400 mb-1">Name</label>
+                <label htmlFor="name" className="block text-sm font-medium text-slate-400 mb-1">{t('contact.name')}</label>
                 <input
                   type="text"
                   name="name"
@@ -98,7 +100,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-slate-400 mb-1">Email</label>
+                <label htmlFor="email" className="block text-sm font-medium text-slate-400 mb-1">{t('contact.email')}</label>
                 <input
                   type="email"
                   name="email"
@@ -110,7 +112,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-slate-400 mb-1">Message</label>
+                <label htmlFor="message" className="block text-sm font-medium text-slate-400 mb-1">{t('contact.message_label')}</label>
                 <textarea
                   name="message"
                   id="message"
@@ -133,9 +135,9 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                       </svg>
-                      Sending...
+                      {t('contact.sending')}
                     </>
-                  ) : "Send Message"}
+                  ) : t('contact.submit')}
                 </button>
               </div>
               {status === 'error' && (
