@@ -202,7 +202,8 @@ const App: React.FC = () => {
     const [activeExperienceTab, setActiveExperienceTab] = useState(0);
     const cornerOrbitsRef = useRef<HTMLDivElement>(null);
     const [isContactModalOpen, setContactModalOpen] = useState(false);
-    const { t } = useLanguage();
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const { t, language, setLanguage } = useLanguage();
     const roleKey = useRotatingRole(5000); // Rotates every 5 seconds - synchronized for navbar and hero
 
 
@@ -612,7 +613,49 @@ const App: React.FC = () => {
                                 </a>
                             ))}
                         </div>
+                        {/* Mobile hamburger button */}
+                        <button
+                            className="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1.5 text-slate-300 hover:text-cyan-400 transition-colors"
+                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                            aria-label="Toggle menu"
+                        >
+                            <span className={`block w-6 h-0.5 bg-current transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+                            <span className={`block w-6 h-0.5 bg-current transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
+                            <span className={`block w-6 h-0.5 bg-current transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+                        </button>
                     </nav>
+                    {/* Mobile Menu Overlay */}
+                    {isMobileMenuOpen && (
+                        <div className="md:hidden bg-[#0a192f]/95 backdrop-blur-lg border-t border-slate-700/50 px-6 py-6 flex flex-col space-y-5">
+                            {['about', 'experience', 'projects', 'contact'].map((item, i) => (
+                                <a
+                                    key={item}
+                                    href={`#${item}`}
+                                    onClick={(e) => { handleNavClick(e, item); setIsMobileMenuOpen(false); }}
+                                    className="text-slate-300 hover:text-cyan-400 transition-colors text-base"
+                                >
+                                    <span className="text-cyan-400 font-mono mr-2">0{i + 1}.</span> {t(`nav.${item}`)}
+                                </a>
+                            ))}
+                            <div className="pt-3 border-t border-slate-700/50">
+                                <p className="text-slate-500 font-mono text-xs mb-3 uppercase tracking-widest">Language</p>
+                                <div className="flex items-center space-x-4">
+                                    {(['en', 'es', 'fr', 'de'] as const).map((lang) => (
+                                        <button
+                                            key={lang}
+                                            onClick={() => { setLanguage(lang); setIsMobileMenuOpen(false); }}
+                                            className={`text-sm font-mono font-bold transition-all px-2 py-1 rounded border ${language === lang
+                                                    ? 'text-cyan-400 border-cyan-400/50 bg-cyan-400/10'
+                                                    : 'text-slate-400 border-slate-600 hover:text-cyan-400 hover:border-cyan-400/30'
+                                                }`}
+                                        >
+                                            {lang.toUpperCase()}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    )}
                 </header>
 
                 <main className="container mx-auto px-4">

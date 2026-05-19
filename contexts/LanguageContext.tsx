@@ -86,10 +86,38 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
                     setIsLoading(false);
                     return;
                 } catch (geoError) {
-                    console.warn('Geolocation detection failed, falling back to localStorage:', geoError);
+                    console.warn('Geolocation detection failed, falling back to navigator.language:', geoError);
                 }
 
-                // 3. Check localStorage as fallback (user's previous selection)
+                // 3. Use browser/device language setting (works on mobile without network)
+                try {
+                    const browserLang = navigator.language || (navigator.languages && navigator.languages[0]) || '';
+                    const langPrefix = browserLang.toLowerCase().split('-')[0];
+                    const regionSuffix = browserLang.toLowerCase().split('-')[1] || '';
+
+                    let browserDetected: Language = 'en';
+                    if (langPrefix === 'es') {
+                        browserDetected = 'es';
+                    } else if (langPrefix === 'fr') {
+                        browserDetected = 'fr';
+                    } else if (langPrefix === 'de') {
+                        browserDetected = 'de';
+                    } else if (langPrefix === 'pt' && regionSuffix !== 'br') {
+                        // Portuguese (not Brazilian) - leave as English
+                        browserDetected = 'en';
+                    }
+
+                    if (browserDetected !== 'en' || langPrefix === 'en') {
+                        setLanguageState(browserDetected);
+                        localStorage.setItem('preferred_language', browserDetected);
+                        setIsLoading(false);
+                        return;
+                    }
+                } catch (navError) {
+                    console.warn('navigator.language detection failed:', navError);
+                }
+
+                // 4. Check localStorage as fallback (user's previous selection)
                 const savedLanguage = localStorage.getItem('preferred_language') as Language | null;
                 if (savedLanguage && ['es', 'en', 'fr', 'de'].includes(savedLanguage)) {
                     setLanguageState(savedLanguage);
@@ -97,7 +125,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
                     return;
                 }
 
-                // 4. Default to English if all detection methods fail
+                // 5. Default to English if all detection methods fail
                 setLanguageState('en');
                 localStorage.setItem('preferred_language', 'en');
             } catch (error) {
